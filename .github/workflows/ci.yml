@@ -21,6 +21,6 @@ jobs:
       working-directory: '.'
       run-lint: true
       run-tests: true
-      text: 'This is an additional input passed to the reusable workflow'
+      text: 'นี่เป็นข้อความเพิ่มเติมที่ส่งไปยังขั้นตอนสรุปผลของ workflow' # Optional additional text input
     # Pass secrets to the reusable workflow if needed
     secrets: inherit
