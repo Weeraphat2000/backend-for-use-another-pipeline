@@ -21,6 +21,11 @@ jobs:
       working-directory: '.'
       run-lint: true
       run-tests: true
-      text: 'นี่เป็นข้อความเพิ่มเติมที่ส่งไปยังขั้นตอนสรุปผลของ workflow' # Optional additional text input
+      run-security-audit: true # 🔒 Check for vulnerabilities
+      run-format-check: true # 🎨 Prettier check
+      run-build: true # 🏗️ Build step
+      matrix-test: false # 🧪 Set to true for Node 18, 20, 22 testing
+      slack-notification: false # 📢 Set to true + add SLACK_WEBHOOK_URL secret
+      text: 'นี่เป็นข้อความเพิ่มเติมที่ส่งไปยังขั้นตอนสรุปผลของ workflow'
     # Pass secrets to the reusable workflow if needed
     secrets: inherit
