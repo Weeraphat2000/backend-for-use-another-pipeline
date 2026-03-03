@@ -1,0 +1,25 @@
+# CI Pipeline using Reusable Workflow
+# This workflow calls the reusable workflow from shared-workflows repository
+
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  # Call the reusable workflow from another repository
+  ci-pipeline:
+    # Format: {owner}/{repo}/.github/workflows/{filename}@{ref}
+    # Replace YOUR_GITHUB_USERNAME with your actual GitHub username
+    uses: weeraphat2000/shared-workflows/.github/workflows/nodejs-ci.yml@main
+    with:
+      node-version: '18'
+      working-directory: '.'
+      run-lint: true
+      run-tests: true
+    # Pass secrets to the reusable workflow if needed
+    secrets: inherit
